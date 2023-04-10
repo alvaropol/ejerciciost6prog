@@ -8,13 +8,15 @@ public class Principal {
 		// TODO Auto-generated method stub
 
 		
-		double gradosC,gradosF;
+		double gradosC = 0,gradosF;
 		Scanner sc= new Scanner(System.in);
 	
+		do {
 		try {
 			
 			System.out.println("Grados Celsius:");
 			gradosC=Double.parseDouble(sc.nextLine());
+			
 			if(gradosC<-273) {
 				throw new GradosInferiores("No puedes poner una temperatura más fría que -273ºC");
 			}else {
@@ -24,11 +26,13 @@ public class Principal {
 		}catch(GradosInferiores g){
 			
 			System.out.println(g.getMessage());
-		}finally {
-			sc.close();
 		}
 		
+		}while(gradosC<-273);
 		
+		sc.close();
+		
+		System.out.println("Gracias por usar el programa");
 	}
 
 }
